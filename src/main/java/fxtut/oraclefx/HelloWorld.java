@@ -52,7 +52,7 @@ public class HelloWorld extends Application {       //Jede JFX extended Applicat
         grid.setPadding(new Insets(25, 25, 25, 25));
 
         Text sceneTitle = new Text("Welcome");                  // Text-Objekt ; nicht editierbar?
-        sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));  // Using an inline style is appropriate where the style is bound to a variable, but a better technique for styling the elements of your user interface is by using a cascading style sheet.
+        // ab teil 3 im CSS-FIle sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));  // Using an inline style is appropriate where the style is bound to a variable, but a better technique for styling the elements of your user interface is by using a cascading style sheet.
         grid.add(sceneTitle, 0, 0, 2, 1);           // einsetzen in Grid: ACHTUNG: unnormale Koordinaten, Spalten zuerst, Zeilen später
                                                                  //Auch: beim ersten Element werden Grid-Dimensionen mitangegeben,
         Label userName = new Label("User Name:");
@@ -82,7 +82,7 @@ public class HelloWorld extends Application {       //Jede JFX extended Applicat
 
             @Override
             public void handle(ActionEvent e){
-                actionTarget.setFill(Color.FIREBRICK);
+                // ab Teil 3 im CSS-File actionTarget.setFill(Color.FIREBRICK);
                 actionTarget.setText("Sign in button pressed");
             }
         });
@@ -91,10 +91,13 @@ public class HelloWorld extends Application {       //Jede JFX extended Applicat
         // AB hier Teil 3
 //##########################################
 
+        sceneTitle.setId("welcome-text");
+        actionTarget.setId("actiontarget");
 
 
-        Scene scene = new Scene(grid,300,275);      // Scene is set to 300*275 pixel, wenn leer: minimale größe die nötig ist für Content
+        Scene scene = new Scene(grid,300,275);      // Scene is set to 300 * 275 pixel, wenn leer: minimale größe die nötig ist für Content
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(HelloWorld.class.getResource("login.css").toExternalForm()); // Holt die login.css Datei aus dem resources ordner
         primaryStage.show();
     }
 
