@@ -52,7 +52,7 @@ public class HelloWorld extends Application {
         grid.setPadding(new Insets(25, 25, 25, 25));
 
         Text scenetitle = new Text ("Welcome");
-        scenetitle.setFont(Font.font("Tomaha", FontWeight.NORMAL, 20));
+//        scenetitle.setFont(Font.font("Tomaha", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0,0,2,1);
 
         Label userName = new Label("User Name: ");
@@ -79,17 +79,20 @@ public class HelloWorld extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                actiontarget.setFill(Color.FIREBRICK);
+//                actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("Sign in button pressed");
 
             }
         });
 
-
+        scenetitle.setId("welcome-text");
+        actiontarget.setId("actiontarget");
 
 
         Scene scene = new Scene (grid, 300, 275);
         primaryStage.setScene(scene);
+
+        scene.getStylesheets().add(HelloWorld.class.getResource("login.css").toExternalForm());
 
         primaryStage.show();
     }
