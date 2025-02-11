@@ -26,7 +26,7 @@ import static java.lang.Math.random;
 
 public class ColorfulCircles extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage)  {
         Group root = new Group();
         Scene scene = new Scene(root, 800, 600, Color.BLACK);
         stage.setScene(scene);
